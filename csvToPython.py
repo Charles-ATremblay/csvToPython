@@ -2,9 +2,16 @@
 # The python file will contain a class containing the attributes of the csv file. 
 import csv
 import os
+import json
 
-# The path of the csv file.(Change this to the path of your csv file)
-filePath = "csvToPython\sampleCSVHeader\sample1.csv"
+# Load the configuration from the config file
+def loadConfig():
+    config_file = "config.json"
+    if os.path.exists(config_file):
+        with open(config_file) as f:
+            config = json.load(f)
+        return config
+    return None
 
 # This method will be used to create the name of the python file.
 def getCSVFileName(csvFilePath):
@@ -91,10 +98,20 @@ def createMethods(pythonFile, csvFilePath):
             pythonFile.write("\n\tdef set" + firstLine[i][0].upper() + firstLine[i][1:] + "(self, " + firstLine[i] + "):\n")
             pythonFile.write("\t\tself." + firstLine[i] + " = " + firstLine[i] + "\n")
 
+# Load the config
+config = loadConfig()
 
+# Get the CSV file path from the config
+csvFilePath = config["csvFilePath"]
 
-#Run the methods.
-fileName = getCSVFileName(filePath)
-pyFile = createPythonFile(fileName)
-createClass(pyFile, fileName)
-createMethods(pyFile, filePath)
+# Get the name of the CSV file
+fileName = getCSVFileName(csvFilePath)
+
+# Create the Python file
+pythonFile = createPythonFile(fileName)
+
+# Create the class
+createClass(pythonFile, fileName)
+
+# Create the methods
+createMethods(pythonFile, csvFilePath)

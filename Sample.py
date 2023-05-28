@@ -1,4 +1,4 @@
-﻿class Personne:
+﻿class Sample:
 	def __init__(self, info_id, name, lastName, sex, age, status):
 		self.info_id = info_id
 		self.name = name

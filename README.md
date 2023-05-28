@@ -10,14 +10,21 @@ The CSV to Python Class Generator is a program designed to generate a Python cla
 
 3. Prepare your CSV file with the data you want to convert to a Python class.
 
-4. Modify the `filePath` variable in the code to specify the path to your CSV file.
+4. **Modify the JSON config file named `config.json`. The JSON file should have the following structure:**
+   ```json
+   {
+       "csv_file_path": "path\\to\\your\\csv\\file.csv"
+   }
+   Replace "path\\to\\your\\csv\\file.csv" with the actual path to your CSV file.
+
+   If you skip this step, the program will display an error message and exit.
 
 5. Run the `csv_to_python.py` script using the following command:
     python csv_to_python.py
 
-The program will generate a Python file with the same name as your CSV file in the same directory. The Python file will contain a class representing the attributes of the CSV file.
+The program will read the CSV file path from the config file and generate a Python file with the same name as the CSV file in the same directory. The Python file will contain a class representing the attributes of the CSV file.
 
-6. Use the generated Python class in your Python programs by importing it.
+Use the generated Python class in your Python programs by importing it.
 
 ## Example
 
@@ -68,3 +75,4 @@ You can now import and use the Sample1 class in your Python programs.
 Dependencies
     - csv
     - os
+    - json
