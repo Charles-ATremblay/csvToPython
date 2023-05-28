@@ -1,24 +1,11 @@
-#This class must read the first line of the csv file and the nae of the file. 
-#The name of the csv file will be used to create a new python file that contains a class with the same name. 
-#In this class we will have the following methods:
-# 1. __init__(): .
-# 2. get(): .
-# 3. set(): .
-
-#Every csv file's first row will contain different data types.
-#The data types will be used to create the attributes of the class.
-#The data types will be used to create the parameters of the __init__ method.
-#The data types will be used to create the parameters of the set method.
-#The data types will be used to create the return value of the get method.
-
-#The encoding must be utf-8-sig to avoid the BOM character.
-
+# This class will take a csv file and create a python file with the same name.
+# The python file will contain a class containing the attributes of the csv file. 
 import csv
 import os
 
-filePath = "C:\Charles\Practice\csvToPython\sampleCSVHeader\sample1.csv"
+# The path of the csv file.(Change this to the path of your csv file)
+filePath = "csvToPython\sampleCSVHeader\sample1.csv"
 
-# First we want a method to extract the name of the csv file. 
 # This method will be used to create the name of the python file.
 def getCSVFileName(csvFilePath):
 
@@ -30,7 +17,7 @@ def getCSVFileName(csvFilePath):
 
     return fileNameWithoutExtension
 
-# Second we want to create a new python file with the name of the csv file.
+# This method will be used to create the python file.
 def createPythonFile(fileNameWithoutExtension):
     
     # Create a new python file with the name of the csv file.
@@ -38,7 +25,7 @@ def createPythonFile(fileNameWithoutExtension):
     
     return pythonFile
 
-# Third we want to create a class with the name of the csv file in the new python file.
+# This method will be used to create the class.
 def createClass(pythonFile, fileNameWithoutExtension):
     
     pythonFileName = fileNameWithoutExtension + ".py"
@@ -54,13 +41,13 @@ def createClass(pythonFile, fileNameWithoutExtension):
 
     return pythonFile
 
-# Fourth we want a method that checks if a given string has a . and replaces it with an underscore.
+# This method will be used to replace the dot with an underscore.
 def replaceDotWithUnderscore(string):
     if "." in string:
         string = string.replace(".", "_")
     return string
 
-#Fifth we want to create the __init__ method.
+# This method will be used to create the methods of the class (the constructer, the getters and setters)
 def createMethods(pythonFile, csvFilePath):
     
     # Open the csv file.
