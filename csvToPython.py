@@ -16,6 +16,8 @@
 import csv
 import os
 
+filePath = "C:\Charles\Practice\csvToPython\sampleCSVHeader\sample1.csv"
+
 # First we want a method to extract the name of the csv file. 
 # This method will be used to create the name of the python file.
 def getCSVFileName(csvFilePath):
@@ -104,7 +106,7 @@ def createMethods(pythonFile, csvFilePath):
 
 
 
-filePath = "C:\Charles\Practice\csvToPython\Personne.csv"
+#Run the methods.
 fileName = getCSVFileName(filePath)
 pyFile = createPythonFile(fileName)
 createClass(pyFile, fileName)
