@@ -30,6 +30,7 @@ Use the generated Python class in your Python programs by importing it.
 
 Suppose you have a CSV file named `sample1.csv` with the following contents:
 
+```csv
 id,name,age,email
 1,John Doe,30,johndoe@example.com
 2,Jane Smith,25,janesmith@example.com
